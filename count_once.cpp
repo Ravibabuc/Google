@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include<vector>
 using namespace std;
@@ -6,37 +5,32 @@ using namespace std;
 int main()
 {
     
-    string A="111011101";
+    string A="11101110111111011111";
     int count =0;
     int ans =0;
     int previous=0;
+    int cz=0;
     for (int i=0;i<A.size();i++)
     {
-        if( i ==0)
+      
+        if(A[i]=='0')
         {
-            if(A[i]=='1')
-            {
-                count ++;
-            }
+                count =0;
         }
-        if(A[i]=='1' && A[i-1])
+        
+        else 
         {
-            count ++;
+         
+         count ++;
+          if(previous < count)
+            {
+                previous = count;
+            }
+            
             
         }
-        else
-        {
-            if(previous < count)
-            {
-                previous = count;
-            }
-            count =0;
-        }
-        if(previous < count)
-        {
-                previous = count;
-        }
-    }
+    } 
+    
     cout <<"count ="<<previous<<endl;
     return previous;
 }
